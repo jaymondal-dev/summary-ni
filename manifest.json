@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Content Extractor & AI Summary",
+  "version": "1.1",
+  "description": "Extract content from web pages and generate AI summaries and insights",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": ["https://generativelanguage.googleapis.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["floatingButton.css"],
+      "js": ["geminiService.js", "floatingButton.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon.png",
+      "48": "assets/icon.png",
+      "128": "assets/icon.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icon.png",
+    "48": "assets/icon.png",
+    "128": "assets/icon.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/icon.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

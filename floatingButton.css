@@ -1,0 +1,408 @@
+/* Main floating button styles */
+#content-extractor-float {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #333333;
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+#content-extractor-float:hover {
+    background-color: #444444;
+    transform: scale(1.05);
+}
+
+/* Floating button icon */
+#content-extractor-float img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+}
+
+/* Modal overlay */
+#content-extractor-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    display: none;
+}
+
+/* Modal container */
+#content-extractor-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    max-width: 850px;
+    height: 80vh;
+    background-color: #1A1A1A;
+    border-radius: 8px;
+    z-index: 10000;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+/* Modal header */
+#content-extractor-modal-header {
+    padding: 12px 16px;
+    background-color: #1F1F1F;
+    border-bottom: 1px solid #2A2A2A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Modal title */
+#content-extractor-modal-title {
+    color: #E0E0E0;
+    font-size: 16px;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Close button */
+#content-extractor-close {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 22px;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+#content-extractor-close:hover {
+    color: #CCC;
+    background-color: #2A2A2A;
+}
+
+/* Tabs navigation */
+.tab-navigation {
+    display: flex;
+    background-color: #1F1F1F;
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.tab-btn {
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.tab-btn:hover {
+    color: #CCC;
+    background-color: #2A2A2A;
+}
+
+.tab-btn.active {
+    color: #E0E0E0;
+    background-color: #1A1A1A;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #555;
+}
+
+/* Tab content container */
+.tab-content {
+    display: none;
+    height: calc(100% - 90px); /* Header + tabs height */
+    overflow: hidden;
+}
+
+.tab-content.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Text tab */
+#text-tab {
+    padding: 12px;
+}
+
+#content-extractor-text {
+    width: 100%;
+    height: calc(100% - 70px);
+    padding: 12px;
+    box-sizing: border-box;
+    background-color: #242424;
+    color: #E0E0E0;
+    border: 1px solid #2A2A2A;
+    border-radius: 4px;
+    resize: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+#content-extractor-text:focus {
+    outline: none;
+    border-color: #444;
+}
+
+.text-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.text-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.primary-btn {
+    background-color: #444444;
+    color: #E0E0E0;
+}
+
+.primary-btn:hover {
+    background-color: #555555;
+}
+
+.secondary-btn {
+    background-color: #2A2A2A;
+    color: #E0E0E0;
+}
+
+.secondary-btn:hover {
+    background-color: #333333;
+}
+
+#word-count {
+    color: #888;
+    font-size: 13px;
+}
+
+/* Chat tab */
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Message styles */
+.chat-message {
+    padding: 12px;
+    border-radius: 6px;
+    max-width: 85%;
+    line-height: 1.5;
+    position: relative;
+    animation: messageAppear 0.2s ease;
+}
+
+@keyframes messageAppear {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Assistant message */
+.chat-message.assistant {
+    background-color: #2A2A2A;
+    margin-right: auto;
+    color: #E0E0E0;
+    border-bottom-left-radius: 2px;
+}
+
+/* User message */
+.chat-message.you {
+    background-color: #333333;
+    margin-left: auto;
+    color: #E0E0E0;
+    border-bottom-right-radius: 2px;
+}
+
+/* Message sender label */
+.message-sender {
+    font-size: 12px;
+    margin-bottom: 4px;
+    font-weight: 500;
+    opacity: 0.7;
+    color: #BBB;
+}
+
+/* Message content */
+.message-content {
+    font-size: 14px;
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.message-content p {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+/* Input container */
+#chat-input-container {
+    padding: 12px;
+    border-top: 1px solid #2A2A2A;
+    display: flex;
+    gap: 8px;
+    background-color: #1F1F1F;
+}
+
+/* Chat input */
+#chat-input {
+    flex: 1;
+    padding: 10px 12px;
+    background-color: #242424;
+    color: #E0E0E0;
+    border: 1px solid #2A2A2A;
+    border-radius: 4px;
+    resize: none;
+    height: 36px;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    transition: border-color 0.2s;
+}
+
+#chat-input:focus {
+    outline: none;
+    border-color: #444;
+}
+
+/* Send button */
+#send-message {
+    padding: 0 16px;
+    background-color: #444444;
+    color: #E0E0E0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    transition: background-color 0.2s;
+}
+
+#send-message:hover {
+    background-color: #555555;
+}
+
+/* Clear chat button */
+#clear-chat {
+    background-color: transparent;
+    border: 1px solid #333;
+    color: #888;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#clear-chat:hover {
+    background-color: #2A2A2A;
+    color: #CCC;
+}
+
+/* Loading indicator */
+#loading-indicator {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(30, 30, 30, 0.9);
+    padding: 16px 24px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: #E0E0E0;
+    z-index: 10001;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.loading-message {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Spinner animation */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #333;
+    border-top: 2px solid #888;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+/* Toast notifications */
+.content-extractor-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2A2A2A;
+    color: #E0E0E0;
+    padding: 10px 16px;
+    border-radius: 4px;
+    z-index: 2147483647;
+    transition: opacity 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 13px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}

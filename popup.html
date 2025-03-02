@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Content Extractor</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Content Extractor</h1>
+            <p class="subtitle">Extract and summarize web content with AI</p>
+        </div>
+        <div class="content">
+            <div class="api-key-section">
+                <label for="apiKey">Gemini API Key:</label>
+                <div class="api-key-container">
+                    <input type="password" id="apiKey" placeholder="Enter your API key">
+                    <button id="saveApiKey" class="save-btn">Save</button>
+                </div>
+                <p id="apiKeyStatus" class="status-text"></p>
+                <a href="https://aistudio.google.com/app/apikey" target="_blank" class="get-key-link">Get an API key</a>
+            </div>
+            <div class="controls">
+                <button id="toggleButton" class="toggle-btn">
+                    Deactivate Floating Button
+                </button>
+            </div>
+            <div class="info-box">
+                <p id="message"></p>
+            </div>
+            <div class="footer">
+                <p>Use the floating button on any webpage to extract content</p>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
